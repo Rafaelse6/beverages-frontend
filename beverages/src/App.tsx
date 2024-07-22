@@ -1,7 +1,8 @@
 import "./App.css";
+import HeaderClient from "./components/HeaderClient";
 
 function App() {
-  return <h1>Beverages Ecommerce</h1>;
+  return <HeaderClient />;
 }
 
 export default App;
