@@ -1,6 +1,6 @@
 export default function ButtonPrimary() {
   return (
-    <div className="w-full p-7 h-10 rounded-md text-base font-bold flex justify-center items-center cursor-pointer border-none bg-bec-color-btn-primary color: rgb(0 0 0)">
+    <div className="w-full p-6 h-10 rounded-md text-base font-bold flex justify-center items-center cursor-pointer bg-bec-color-btn-primary text-bec-color-btn-inverse">
       BUY
     </div>
   );
