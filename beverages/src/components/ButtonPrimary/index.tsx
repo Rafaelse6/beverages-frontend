@@ -1,6 +1,6 @@
 export default function ButtonPrimary() {
   return (
-    <div className="w-full p-6 h-10 rounded-md text-base font-bold flex justify-center items-center cursor-pointer bg-bec-color-btn-primary text-bec-color-btn-inverse">
+    <div className="inline-flex h-10 px-4 py-2 rounded-md text-base font-bold items-center cursor-pointer border-none bg-bec-color-btn-primary text-bec-color-btn-inverse leading-none">
       BUY
     </div>
   );
