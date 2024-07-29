@@ -13,7 +13,8 @@ export const theme = {
 
       "bec-color-btn-inverse": "#FFF",
       "bec-color-font-primary": "#000",
-      
+      "bec-color-font-placeholder": "#b8b4b4",
+
       "beg-color-error": "#F33",
     },
   },
