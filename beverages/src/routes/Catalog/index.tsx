@@ -1,3 +1,4 @@
+import ButtonNextPage from "../../components/ButtonNextPage";
 import CatalogCard from "../../components/CatalogCard";
 import HeaderClient from "../../components/HeaderClient/HeaderClient";
 import SearchBar from "../../components/SearchBar";
@@ -16,6 +17,9 @@ export default function Catalog() {
             <CatalogCard />
             <CatalogCard />
             <CatalogCard />
+          </div>
+          <div className="flex justify-center mt-6">
+            <ButtonNextPage />
           </div>
         </section>
       </main>
