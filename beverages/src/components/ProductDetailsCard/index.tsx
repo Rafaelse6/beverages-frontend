@@ -28,8 +28,8 @@ export default function ProductDetailsCard() {
           culpa qui officia deserunt mollit anim id est laborum.
         </p>
         <div className="flex flex-wrap justify-center text-center">
-          <ProductCategory />
-          <ProductCategory />
+          <ProductCategory name="Non alcoholic" />
+          <ProductCategory name="Soda" />
         </div>
       </div>
     </div>
