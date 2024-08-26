@@ -1,8 +1,7 @@
-import ButtonInverse from "../../components/ButtonInverse";
-import ButtonPrimary from "../../components/ButtonPrimary";
-import HeaderClient from "../../components/HeaderClient/HeaderClient";
-import ProductDetailsCard from "../../components/ProductDetailsCard";
-import { BeverageDTO } from "../../models/beverage";
+import ButtonInverse from "../../../components/ButtonInverse";
+import ButtonPrimary from "../../../components/ButtonPrimary";
+import ProductDetailsCard from "../../../components/ProductDetailsCard";
+import { BeverageDTO } from "../../../models/beverage";
 
 const beverage: BeverageDTO = {
   id: 2,
@@ -30,7 +29,6 @@ const beverage: BeverageDTO = {
 export default function ProductDetails() {
   return (
     <>
-      <HeaderClient />
       <main className="bg-bec-color-bg-primary min-h-screen">
         <section id="product-details-section" className="dsc-container py-8">
           <ProductDetailsCard beverage={beverage} />

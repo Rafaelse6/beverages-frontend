@@ -1,8 +1,7 @@
-import ButtonNextPage from "../../components/ButtonNextPage";
-import CatalogCard from "../../components/CatalogCard";
-import HeaderClient from "../../components/HeaderClient/HeaderClient";
-import SearchBar from "../../components/SearchBar";
-import { BeverageDTO } from "../../models/beverage";
+import ButtonNextPage from "../../../components/ButtonNextPage";
+import CatalogCard from "../../../components/CatalogCard";
+import SearchBar from "../../../components/SearchBar";
+import { BeverageDTO } from "../../../models/beverage";
 
 const beverage: BeverageDTO = {
   id: 2,
@@ -30,7 +29,6 @@ const beverage: BeverageDTO = {
 export default function Catalog() {
   return (
     <>
-      <HeaderClient />
       <main>
         <section id="catalog-section" className="bec-container py-5">
           <SearchBar />

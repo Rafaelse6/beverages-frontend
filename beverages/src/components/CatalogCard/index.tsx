@@ -16,7 +16,7 @@ export default function CatalogCard({ beverage }: Props) {
       </div>
       <div className="p-4">
         <h3 className="text-bec-color-font-secondary text-xl font-bold flex items-center">
-          {beverage.price.toFixed(2)}
+          R$ {beverage.price.toFixed(2)}
         </h3>
         <h4 className="text-bec-color-font-primary text-lg font-semibold ">
           {beverage.name}
