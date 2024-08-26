@@ -20,6 +20,10 @@ const beverage: BeverageDTO = {
       id: 3,
       name: "Non alcoholic",
     },
+    {
+      id: 4,
+      name: "Imported",
+    },
   ],
 };
 
@@ -31,8 +35,8 @@ export default function ProductDetails() {
         <section id="product-details-section" className="dsc-container py-8">
           <ProductDetailsCard beverage={beverage} />
           <div className="flex justify-center gap-4 mt-6">
-            <ButtonPrimary />
-            <ButtonInverse />
+            <ButtonPrimary text="BUY" />
+            <ButtonInverse text="Start" />
           </div>
         </section>
       </main>

@@ -26,8 +26,9 @@ export default function ProductDetailsCard({ beverage }: Props) {
           {beverage.description}
         </p>
         <div className="flex flex-wrap justify-center text-center">
-          <ProductCategory name="Non alcoholic" />
-          <ProductCategory name="Soda" />
+          {beverage.categories.map((item) => (
+            <ProductCategory key={item.id} name={item.name} />
+          ))}
         </div>
       </div>
     </div>
