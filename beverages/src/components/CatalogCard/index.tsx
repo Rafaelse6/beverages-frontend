@@ -11,14 +11,14 @@ export default function CatalogCard({ beverage }: Props) {
         <img
           src={beverage.imgUrl}
           alt={beverage.name}
-          className="w-48 h-auto"
+          className="max-w-full h-48 object-contain" // Ajuste de tamanho e proporção da imagem
         />
       </div>
       <div className="p-4">
         <h3 className="text-bec-color-font-secondary text-xl font-bold flex items-center">
           R$ {beverage.price.toFixed(2)}
         </h3>
-        <h4 className="text-bec-color-font-primary text-lg font-semibold ">
+        <h4 className="text-bec-color-font-primary text-lg font-semibold">
           {beverage.name}
         </h4>
         <p className="text-bec-color-font-primary text-sm my-2.5 bg-gray-100 p-3 rounded-md">
