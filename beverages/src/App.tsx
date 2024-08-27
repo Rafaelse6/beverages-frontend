@@ -3,6 +3,7 @@ import "./App.css";
 import ClientHome from "./routes/ClientHome";
 import Catalog from "./routes/ClientHome/Catalog";
 import ProductDetails from "./routes/ClientHome/ProductDetails";
+import NotFound from "./routes/ClientHome/NotFound";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
             element={<ProductDetails />}
           />
         </Route>
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </BrowserRouter>
   );
