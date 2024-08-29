@@ -3,12 +3,21 @@ import ButtonInverse from "../../../components/ButtonInverse";
 import ButtonPrimary from "../../../components/ButtonPrimary";
 import ProductDetailsCard from "../../../components/ProductDetailsCard";
 import * as beverageService from "../../../services/beverage-service.ts";
+import { useEffect, useState } from "react";
+import { BeverageDTO } from "../../../models/beverage.ts";
+import axios from "axios";
 
 export default function ProductDetails() {
   const params = useParams();
 
-  const beverage = beverageService.findById(Number(params.beverageId));
+  const [beverage, setBeverage] = useState<BeverageDTO>();
 
+  useEffect(() => {
+    axios.get("http://localhost:8080/beverages/1").then((response) => {
+      console.log(response.data);
+      setBeverage(response.data);
+    });
+  }, []);
   return (
     <>
       <main className="bg-bec-color-bg-primary min-h-screen">
