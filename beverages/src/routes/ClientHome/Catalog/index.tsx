@@ -1,15 +1,15 @@
 import { useEffect, useState } from "react";
 import ButtonNextPage from "../../../components/ButtonNextPage";
+import * as beverageService from "../../../services/beverage-service.ts";
 import CatalogCard from "../../../components/CatalogCard/index.tsx";
 import SearchBar from "../../../components/SearchBar";
 import { BeverageDTO } from "../../../models/beverage.ts";
-import axios from "axios";
 
 export default function Catalog() {
   const [beverages, setBeverages] = useState<BeverageDTO[]>([]);
 
   useEffect(() => {
-    axios.get("http://localhost:8080/beverages?size=12").then((response) => {
+    beverageService.findAll().then((response) => {
       setBeverages(response.data.content);
     });
   }, []);
