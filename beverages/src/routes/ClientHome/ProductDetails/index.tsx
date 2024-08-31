@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import ButtonInverse from "../../../components/ButtonInverse";
 import * as beverageService from "../../../services/beverage-service.ts";
 import ButtonPrimary from "../../../components/ButtonPrimary";
@@ -9,13 +9,19 @@ import { BeverageDTO } from "../../../models/beverage.ts";
 export default function ProductDetails() {
   const params = useParams();
 
+  const navigate = useNavigate();
+
   const [beverage, setBeverage] = useState<BeverageDTO>();
 
   useEffect(() => {
-    beverageService.findById(Number(params.beverageId)).then((response) => {
-      console.log(response.data);
-      setBeverage(response.data);
-    });
+    beverageService
+      .findById(Number(params.beverageId))
+      .then((response) => {
+        setBeverage(response.data);
+      })
+      .catch(() => {
+        navigate("/not-found");
+      });
   }, []);
   return (
     <>
