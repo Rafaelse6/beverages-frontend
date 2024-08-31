@@ -2,7 +2,6 @@ import { useParams } from "react-router-dom";
 import ButtonInverse from "../../../components/ButtonInverse";
 import ButtonPrimary from "../../../components/ButtonPrimary";
 import ProductDetailsCard from "../../../components/ProductDetailsCard";
-import * as beverageService from "../../../services/beverage-service.ts";
 import { useEffect, useState } from "react";
 import { BeverageDTO } from "../../../models/beverage.ts";
 import axios from "axios";
@@ -13,10 +12,12 @@ export default function ProductDetails() {
   const [beverage, setBeverage] = useState<BeverageDTO>();
 
   useEffect(() => {
-    axios.get("http://localhost:8080/beverages/1").then((response) => {
-      console.log(response.data);
-      setBeverage(response.data);
-    });
+    axios
+      .get(`http://localhost:8080/beverages/${params.beverageId}`)
+      .then((response) => {
+        console.log(response.data);
+        setBeverage(response.data);
+      });
   }, []);
   return (
     <>

@@ -1,16 +1,26 @@
+import { useEffect, useState } from "react";
 import ButtonNextPage from "../../../components/ButtonNextPage";
 import CatalogCard from "../../../components/CatalogCard/index.tsx";
 import SearchBar from "../../../components/SearchBar";
-import * as beverageService from "../../../services/beverage-service.ts";
+import { BeverageDTO } from "../../../models/beverage.ts";
+import axios from "axios";
 
 export default function Catalog() {
+  const [beverages, setBeverages] = useState<BeverageDTO[]>([]);
+
+  useEffect(() => {
+    axios.get("http://localhost:8080/beverages?size=12").then((response) => {
+      setBeverages(response.data.content);
+    });
+  }, []);
+
   return (
     <>
       <main>
         <section id="catalog-section" className="bec-container py-5">
           <SearchBar />
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-4">
-            {beverageService.findAll().map((beverage) => (
+            {beverages.map((beverage) => (
               <CatalogCard key={beverage.id} beverage={beverage} />
             ))}
           </div>
