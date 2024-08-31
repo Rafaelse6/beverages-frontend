@@ -4,11 +4,22 @@ import * as beverageService from "../../../services/beverage-service.ts";
 import CatalogCard from "../../../components/CatalogCard/index.tsx";
 import SearchBar from "../../../components/SearchBar";
 import { BeverageDTO } from "../../../models/beverage.ts";
+import { CategoryDTO } from "../../../models/category.ts";
 
 export default function Catalog() {
   const [beverages, setBeverages] = useState<BeverageDTO[]>([]);
 
+  const objTest: CategoryDTO = {
+    id: 8,
+    name: "Testing local storage",
+  };
+
   useEffect(() => {
+    localStorage.setItem("myCategory", JSON.stringify(objTest));
+
+    const obj = JSON.parse(localStorage.getItem("myCategory") || "{}");
+    console.log(obj.id);
+
     beverageService.findAll().then((response) => {
       setBeverages(response.data.content);
     });
