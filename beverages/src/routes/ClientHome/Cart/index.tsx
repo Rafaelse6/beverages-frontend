@@ -1,25 +1,38 @@
-const cart = {
-  items: [
-    {
-      beverageId: 4,
-      quantity: 1,
-      name: "Coca-Cola",
-      price: 2,
-      imgUrl:
-        "https://raw.githubusercontent.com/Rafaelse6/beverages/main/coca-cola.png",
-    },
-    {
-      beverageId: 5,
-      quantity: 2,
-      name: "Heineken",
-      price: 10.0,
-      imgUrl:
-        "https://raw.githubusercontent.com/Rafaelse6/beverages/main/heineken.png",
-    },
-  ],
-};
+import { useEffect, useState } from "react";
+import * as cartService from "../../../services/cart-service";
+import { OrderDTO, OrderItemDTO } from "../../../models/order";
+
+// Items dummy data
+const item1: OrderItemDTO = new OrderItemDTO(
+  4,
+  1,
+  "Coca-Cola",
+  2,
+  "https://raw.githubusercontent.com/Rafaelse6/beverages/main/coca-cola.png"
+);
+
+const item2: OrderItemDTO = new OrderItemDTO(
+  5,
+  2,
+  "Heineken",
+  10.0,
+  "https://raw.githubusercontent.com/Rafaelse6/beverages/main/heineken.png"
+);
 
 export default function Cart() {
+  // Cart state
+  const [cart, setCart] = useState(new OrderDTO());
+
+  useEffect(() => {
+    // Adding items to cart and saving them
+    const newCart = new OrderDTO();
+    newCart.items.push(item1);
+    newCart.items.push(item2);
+    setCart(newCart);
+    cartService.saveCart(newCart);
+  }, []);
+
+  // Calcular o total
   const totalPrice = cart.items.reduce(
     (total, item) => total + item.price * item.quantity,
     0
@@ -69,7 +82,7 @@ export default function Cart() {
           <h3 className="font-bold text-2xl">R$ {totalPrice.toFixed(2)}</h3>
         </div>
 
-        {/* Buttons */}
+        {/* BUttons */}
         <div className="flex justify-between mt-8">
           <button className="bg-bec-color-btn-primary text-bec-color-btn-inverse py-3 px-6 rounded shadow hover:bg-bec-color-bg-tertiary hover:text-white transition-colors duration-200">
             Keep Buying
