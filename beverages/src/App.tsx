@@ -4,6 +4,7 @@ import ClientHome from "./routes/ClientHome";
 import Catalog from "./routes/ClientHome/Catalog";
 import ProductDetails from "./routes/ClientHome/ProductDetails";
 import NotFound from "./routes/ClientHome/NotFound";
+import Cart from "./routes/ClientHome/Cart";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
             path="product-details/:beverageId"
             element={<ProductDetails />}
           />
+          <Route path="cart" element={<Cart />} />
         </Route>
         <Route path="*" element={<NotFound />} />
       </Routes>
