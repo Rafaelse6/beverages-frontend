@@ -8,3 +8,7 @@ export function findAll() {
 export function findById(id: number) {
   return axios.get(`${BASE_URL}/beverages/${id}`);
 }
+
+export function addBeverage(beverage: BeverageDTO) {
+  throw new Error("Function not implemented.");
+}

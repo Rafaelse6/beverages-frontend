@@ -1,6 +1,7 @@
 import { useNavigate, useParams } from "react-router-dom";
 import ButtonInverse from "../../../components/ButtonInverse";
 import * as beverageService from "../../../services/beverage-service.ts";
+import * as cartService from "../../../services/cart-service.ts";
 import ButtonPrimary from "../../../components/ButtonPrimary";
 import ProductDetailsCard from "../../../components/ProductDetailsCard";
 import { useEffect, useState } from "react";
@@ -23,13 +24,23 @@ export default function ProductDetails() {
         navigate("/not-found");
       });
   }, []);
+
+  function handleBuyClick() {
+    if (beverage) {
+      cartService.addBeverage(beverage);
+      navigate("/cart");
+    }
+  }
+
   return (
     <>
       <main className="bg-bec-color-bg-primary min-h-screen">
         <section id="product-details-section" className="dsc-container py-8">
           {beverage && <ProductDetailsCard beverage={beverage} />}
           <div className="flex justify-center gap-4 mt-6">
-            <ButtonPrimary text="BUY" />
+            <div onClick={handleBuyClick}>
+              <ButtonPrimary text="BUY" />
+            </div>
             <ButtonInverse text="Start" />
           </div>
         </section>
