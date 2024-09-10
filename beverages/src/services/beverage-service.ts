@@ -1,10 +1,26 @@
-import axios from "axios";
+import axios, { AxiosRequestConfig } from "axios";
 import { BASE_URL } from "../utils/system";
+import { BeverageDTO } from "../models/beverage";
 
-export function findAll() {
-  return axios.get(`${BASE_URL}/beverages?size=12`);
+export function findPageRequest(
+  page: number,
+  name: string,
+  size = 12,
+  sort = "name"
+) {
+  const config: AxiosRequestConfig = {
+    method: "GET",
+    baseURL: BASE_URL,
+    url: "/beverages",
+    params: {
+      page,
+      name,
+      size,
+      sort,
+    },
+  };
+  return axios(config);
 }
-
 export function findById(id: number) {
   return axios.get(`${BASE_URL}/beverages/${id}`);
 }
