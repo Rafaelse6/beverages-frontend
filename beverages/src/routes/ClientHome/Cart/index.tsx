@@ -16,6 +16,10 @@ export default function Cart() {
     setCart(cartService.getCart());
   }
 
+  function handleIncreaseItem(beverageId: number) {
+    cartService.increaseItem(beverageId);
+    setCart(cartService.getCart());
+  }
   return (
     <main className="bg-bec-color-bg-primary min-h-screen flex justify-center items-center pt-6 pb-28">
       <section
@@ -57,7 +61,10 @@ export default function Cart() {
                           -
                         </button>
                         <p className="mx-4">{item.quantity}</p>
-                        <button className="text-bec-color-btn-primary border rounded px-3 py-1 hover:bg-bec-color-bg-tertiary hover:text-white transition-colors duration-200">
+                        <button
+                          onClick={() => handleIncreaseItem(item.beverageId)}
+                          className="text-bec-color-btn-primary border rounded px-3 py-1 hover:bg-bec-color-bg-tertiary hover:text-white transition-colors duration-200"
+                        >
                           +
                         </button>
                       </div>

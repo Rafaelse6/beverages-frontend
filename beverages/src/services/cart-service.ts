@@ -29,3 +29,12 @@ export function addBeverage(beverage: BeverageDTO) {
 export function clearCart() {
   cartRepository.clear();
 }
+
+export function increaseItem(beverageId: number) {
+  const cart = cartRepository.get();
+  const item = cart.items.find((x) => x.beverageId === beverageId);
+  if (item) {
+    item.quantity++;
+    cartRepository.save(cart);
+  }
+}
