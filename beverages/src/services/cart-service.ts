@@ -38,3 +38,15 @@ export function increaseItem(beverageId: number) {
     cartRepository.save(cart);
   }
 }
+
+export function decreaseItem(beverageId: number) {
+  const cart = cartRepository.get();
+  const item = cart.items.find((x) => x.beverageId === beverageId);
+  if (item) {
+    item.quantity--;
+    if (item.quantity < 1) {
+      cart.items = cart.items.filter((x) => x.beverageId !== beverageId);
+    }
+    cartRepository.save(cart);
+  }
+}
