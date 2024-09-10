@@ -11,6 +11,11 @@ export default function Cart() {
     return acc + (item.price ?? 0) * (item.quantity ?? 0);
   }, 0);
 
+  function handleClearClick() {
+    cartService.clearCart();
+    setCart(cartService.getCart());
+  }
+
   return (
     <main className="bg-bec-color-bg-primary min-h-screen flex justify-center items-center pt-6 pb-28">
       <section
@@ -80,7 +85,10 @@ export default function Cart() {
                   Keep Buying
                 </button>
               </Link>
-              <button className="bg-bec-color-card-bg border border-bec-color-card-border text-bec-color-font-primary py-3 px-6 rounded shadow hover:bg-bec-color-bg-tertiary hover:text-white transition-colors duration-200">
+              <button
+                onClick={handleClearClick}
+                className="bg-bec-color-card-bg border border-bec-color-card-border text-bec-color-font-primary py-3 px-6 rounded shadow hover:bg-bec-color-bg-tertiary hover:text-white transition-colors duration-200"
+              >
                 Clear Cart
               </button>
             </div>

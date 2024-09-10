@@ -25,3 +25,7 @@ export function addBeverage(beverage: BeverageDTO) {
     cartRepository.save(cart);
   }
 }
+
+export function clearCart() {
+  cartRepository.clear();
+}
